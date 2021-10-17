@@ -60,14 +60,14 @@
             android:id="@+id/action_updateFragment_to_listFragment"
             app:destination="@id/listFragment"
 
-            app:enterAnim="@anim/slide_in_from_left"
-            app:exitAnim="@anim/slide_out_to_right"
+            app:enterAnim="@anim/slide_in_from_right"
+            app:exitAnim="@anim/slide_out_to_left"
 
             app:popEnterAnim="@anim/slide_in_from_left"
             app:popExitAnim="@anim/slide_out_to_right"
 
-            app:popUpTo="@id/updateFragment"
-            app:popUpToInclusive="false" />
+            app:popUpToInclusive="false"
+            app:popUpTo="@id/listFragment" />
         <argument
             android:name="currentUser"
             app:argType="com.example.room.model.User" />

@@ -8,14 +8,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.room.R
 import com.example.room.databinding.FragmentUpdateBinding
 import com.example.room.model.User
+import com.example.room.util.setupToast
 import com.example.room.viewmodel.UserViewModel
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UpdateFragment : Fragment() {
     private var _binding: FragmentUpdateBinding? = null
@@ -32,18 +34,16 @@ class UpdateFragment : Fragment() {
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
 
         //details of current user from nav args
-        val firstName = args.currentUser.firstName
-        val lastName = args.currentUser.lastName
-        val age = args.currentUser.age.toString()
+        val title = args.currentUser.title
+        val body = args.currentUser.body
 
         //initialize viewModel
         userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
 
         binding.apply {
-            etUpdateFirstName.setText(firstName)
-            etUpdateLastName.setText(lastName)
-            etUpdateAge.setText(age)
+            etTitle.setText(title)
+            etBody.setText(body)
         }
         binding.btnUpdate.setOnClickListener {
             updateUser()
@@ -56,31 +56,36 @@ class UpdateFragment : Fragment() {
         return binding.root
     }
 
+    //updated time
+    private val currentDateTime = Calendar.getInstance().time
+    private val formatter = SimpleDateFormat.getDateTimeInstance()
+    private val formattedDate = formatter.format(currentDateTime)
 
     //update a single selected user
     private fun updateUser() {
-        val firstName = binding.etUpdateFirstName.text.toString()
-        val lastName = binding.etUpdateLastName.text.toString()
-        val age = binding.etUpdateAge.text.toString()
-        if (inputCheck(firstName, lastName, age)){
-            val currentUser = User(args.currentUser.id, firstName, lastName, Integer.parseInt(age))
+        val title = binding.etTitle.text.toString()
+        val body = binding.etBody.text.toString()
+        val time: String = formattedDate
+
+        if (inputCheck(title, body)){
+            val currentUser = User(args.currentUser.id, title, body, "$time   (updated)")
             userViewModel.updateUser(currentUser)
 
             //navigate back the user
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
 
-            Toast.makeText(requireContext(), " User successfully updated.", Toast.LENGTH_SHORT).show()
+            setupToast(requireContext(),"updated successfully.")
 
 
         }else{
-            Toast.makeText(requireContext(), "Please fill out all fields.", Toast.LENGTH_SHORT).show()
+            setupToast(requireContext(), "Please fill out all fields.")
         }
     }
 
 
     //check if the inputs are empty
-    private fun inputCheck(firstName: String, lastName: String, age: String): Boolean{
-        return (!TextUtils.isEmpty(firstName) && !TextUtils.isEmpty(lastName) && !TextUtils.isEmpty(age))
+    private fun inputCheck(title: String, body: String): Boolean{
+        return (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(body))
     }
 
     override fun onDestroyView() {

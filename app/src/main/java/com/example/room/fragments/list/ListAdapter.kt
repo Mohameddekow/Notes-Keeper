@@ -35,10 +35,9 @@ class ListAdapter(private val clickListener: ItemClickListener) :
 
         fun onBind(user: User, action: ItemClickListener) {
             binding.apply {
-                tvId.text = user.id.toString()
-                tvFirstName.text = user.firstName
-                tvLastName.text = user.lastName
-                tvAge.text = user.age.toString()
+                tvTitle.text = user.title
+                tvBody.text = user.body
+                tvTime.text = user.time
             }
             //setting single item click listener
             binding.root.setOnClickListener {
@@ -47,9 +46,7 @@ class ListAdapter(private val clickListener: ItemClickListener) :
             binding.btnDelete.setOnClickListener {
                 action.onItemClicked(it, user, adapterPosition)
             }
-            binding.btnEdit.setOnClickListener {
-                action.onItemClicked(it, user, adapterPosition)
-            }
+
         }
 
 
@@ -61,6 +58,6 @@ class ListAdapter(private val clickListener: ItemClickListener) :
     }
 
     interface ItemClickListener {
-        fun onItemClicked(view: View, item: User, position: Int)
+        fun onItemClicked(view: View, user: User, position: Int)
     }
 }

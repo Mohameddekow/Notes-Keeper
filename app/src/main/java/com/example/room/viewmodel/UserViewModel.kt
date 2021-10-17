@@ -3,6 +3,7 @@ package com.example.room.viewmodel
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.room.data.UserDatabase
 import com.example.room.model.User
@@ -43,6 +44,10 @@ class UserViewModel(application: Application): AndroidViewModel(application) {
         viewModelScope.launch(Dispatchers.IO) {
             repository.deleteAllUsers()
         }
+    }
+
+    fun searchDatabase(searchQuery: String): LiveData<List<User>>{
+        return repository.searchDatabase(searchQuery).asLiveData()
     }
 
 }

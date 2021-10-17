@@ -7,67 +7,45 @@
     tools:context=".fragments.add.AddFragment">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvFirstName"
+        android:id="@+id/tvTitle"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="24dp"
         android:layout_marginHorizontal="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etFirstName"
+            android:id="@+id/etTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="first name"
+            android:hint="title"
             android:inputType="textPersonName"
-            android:maxLength="20"
-            android:maxLines="1" />
+            android:maxLines="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvLastName"
+        android:id="@+id/tvBody"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_marginTop="10dp"
         android:layout_marginHorizontal="25dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFirstName">
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etLastName"
+            android:id="@+id/etBody"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="last name"
-            android:inputType="textPersonName"
-            android:maxLength="20"
-            android:maxLines="1" />
+            android:layout_height="100dp"
+            android:hint="body"
+            android:inputType="textMultiLine"
+            android:maxLines="20" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/tvAge"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginHorizontal="25dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvLastName">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="age"
-            android:inputType="number"
-            android:maxLength="20"
-            android:maxLines="1" />
-    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnAdd"
@@ -75,9 +53,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="add"
-        app:layout_constraintEnd_toEndOf="@+id/tvFirstName"
-        app:layout_constraintStart_toStartOf="@+id/tvFirstName"
-        app:layout_constraintTop_toBottomOf="@+id/tvAge" />
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvBody" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

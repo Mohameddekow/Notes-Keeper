@@ -1,10 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    //day mode colors
+    <color name="purple_200">#4A5D8C</color>
+    <color name="purple_500">#4f4c63</color>
+    <color name="purple_700">#3b3a4a</color>
+    <color name="teal_200">#4A5D8C</color>
+    <color name="teal_700">#4e5b7a</color>
+    <color name="black">#DF090909</color>
+    <color name="white">#DFE0E3</color>
+
+
+    //night mode colors
+    <color name="purple_200_n">#203878</color>
+    <color name="purple_500_n">#203878</color>
+    <color name="purple_700_n">#203878</color>
+    <color name="teal_200_n">#203878</color>
+    <color name="teal_700_n">#203878</color>
+    <color name="black_n">#000000</color>
+    <color name="white_n">#FFFFFF</color>
 </resources>
+<!--<color name="purple_200">#FFBB86FC</color>-->
+<!--<color name="purple_500">#FF6200EE</color>-->
+<!--<color name="purple_700">#FF3700B3</color>-->
+<!--<color name="teal_200">#FF03DAC5</color>-->
+<!--<color name="teal_700">#FF018786</color>-->
+<!--<color name="black">#FF000000</color>-->
+<!--<color name="white">#FFFFFFFF</color>-->
